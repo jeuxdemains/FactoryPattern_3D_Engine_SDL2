@@ -5,7 +5,7 @@
 
 int main()
 {
-	Engine* engine = new Engine(1024, 768);
+	Engine* engine = new Engine(1440, 1440);
 	delete engine;
 
 	return 0;

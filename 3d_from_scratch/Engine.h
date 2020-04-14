@@ -19,8 +19,8 @@ class Engine
 	void loop();
 	void handleEvents();
 	void update();
-	void renderObjects();
 
 public:
 	Engine(const int width, const int height);
+	~Engine();
 };

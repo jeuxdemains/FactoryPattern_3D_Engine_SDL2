@@ -1,3 +1,4 @@
 ﻿  Engine.cpp
-C:\Users\jeuxd\source\repos\3d_from_scratch\3d_from_scratch\Engine.cpp(43,20): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-  3d_from_scratch.vcxproj -> C:\Users\jeuxd\source\repos\3d_from_scratch\x64\Debug\3d_from_scratch.exe
+D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Engine.cpp(34,43): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Engine.cpp(59,20): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
+  3d_from_scratch.vcxproj -> D:\coding\git\FactoryPattern_3D_Engine_SDL2\x64\Debug\3d_from_scratch.exe

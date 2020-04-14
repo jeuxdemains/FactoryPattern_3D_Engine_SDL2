@@ -1,23 +1,28 @@
 #include "Object3d.h"
 
+Object3d::~Object3d()
+{
+	delete matrix;
+}
+
 void Object3d::Update()
 {
+	srand(time(0));
+	float mul = rand() % 3;
 
 	fRotationX_ += 1.0f * 0.01f;
 	fRotationY_ += 1.0f * 0.02f;
 	fRotationZ_ += 1.0f * 0.03f;
 
-	clrR_ = abs(155 * cos(fRotationX_));
-	clrG_ = abs(155 * cos(fRotationY_));
-	clrB_ = abs(155 * cos(fRotationZ_));
+	clrR_ = abs(155 * cos(fRotationX_) * 1.5);
+	clrG_ = abs(155 * cos(fRotationY_) * 1.5);
+	clrB_ = abs(155 * cos(fRotationZ_) * 1.5);
 
 	Render();
 }
 
 void Object3d::Render()
 {
-	Matrix* matrix = new Matrix((float)scrnW_, (float)scrnH_);
-
 	Matrix::Matrix4 const matRotX =
 		matrix->getRotationMatrix(fRotationX_, Matrix::Axis::x);
 	Matrix::Matrix4 const matRotY =
@@ -44,6 +49,22 @@ void Object3d::Render()
 		rotX[i].a.z += 3.0f;
 		rotX[i].b.z += 3.0f;
 		rotX[i].c.z += 3.0f;
+
+		rotX[i].a.x += 3.0f;
+		rotX[i].b.x += 3.0f;
+		rotX[i].c.x += 3.0f;
+
+		rotX[i].a.x += 2.0f * cosf(fRotationX_) * sinf(fRotationY_);
+		rotX[i].b.x += 2.0f * cosf(fRotationX_) * sinf(fRotationY_);
+		rotX[i].c.x += 2.0f * cosf(fRotationX_) * sinf(fRotationY_);
+
+		rotX[i].a.y += 1.0f * sinf(fRotationY_) * cosf(fRotationX_);
+		rotX[i].b.y += 1.0f * sinf(fRotationY_) * cosf(fRotationX_);
+		rotX[i].c.y += 1.0f * sinf(fRotationY_) * cosf(fRotationX_);
+
+		/*rotX[i].a.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
+		rotX[i].b.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
+		rotX[i].c.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);*/
 
 		projectedTri[i] = rotX[i];
 		matrix->mulTriangleByMatrix(
@@ -75,7 +96,7 @@ void Object3d::Render()
 	for (; i >= 0; i--)
 	{
 		SDL_SetRenderDrawColor(sdlRenderer_,
-			clrR_, clrG_, clrB_, 255);
+			clrR_, clrG_, clrB_, clrA_);
 
 		SDL_RenderDrawLine(
 			sdlRenderer_,
@@ -89,10 +110,5 @@ void Object3d::Render()
 			sdlRenderer_,
 			projectedTri[i].c.x, projectedTri[i].c.y,
 			projectedTri[i].a.x, projectedTri[i].a.y);
-
 	}
-
-	
-
-	delete matrix;
 }
