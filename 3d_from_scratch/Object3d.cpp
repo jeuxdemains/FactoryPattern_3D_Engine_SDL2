@@ -7,9 +7,6 @@ Object3d::~Object3d()
 
 void Object3d::Update()
 {
-	srand(time(0));
-	float mul = rand() % 3;
-
 	fRotationX_ += 1.0f * 0.01f;
 	fRotationY_ += 1.0f * 0.02f;
 	fRotationZ_ += 1.0f * 0.03f;

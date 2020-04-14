@@ -2,88 +2,90 @@
 
 Vector3d::Mesh Object3dCube::InitObject()
 {
+	float fLow = -0.5f;
+	float fHigh = 0.5f;
 	Vector3d::Triangle tri1 =
 	{
-		0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		1.0f, 1.0f, 0.0f
+		fLow, fLow, fLow,
+		fLow, fHigh, fLow,
+		fHigh, fHigh, fLow
 	};
 
 	Vector3d::Triangle tri2 =
 	{
-		0.0f, 0.0f, 0.0f,
-		1.0f, 1.0f, 0.0f,
-		1.0f, 0.0f, 0.0f
+		fLow, fLow, fLow,
+		fHigh, fHigh, fLow,
+		fHigh, fLow, fLow
 	};
 
 	Vector3d::Triangle tri3 =
 	{
-		1.0f, 0.0f, 0.0f,
-		1.0f, 1.0f, 0.0f,
-		1.0f, 1.0f, 1.0f
+		fHigh, fLow, fLow,
+		fHigh, fHigh, fLow,
+		fHigh, fHigh, fHigh
 	};
 
 	Vector3d::Triangle tri4 =
 	{
-		1.0f, 0.0f, 0.0f,
-		1.0f, 1.0f, 1.0f,
-		1.0f, 0.0f, 1.0f
+		fHigh, fLow, fLow,
+		fHigh, fHigh, fHigh,
+		fHigh, fLow, fHigh
 	};
 
 	Vector3d::Triangle tri5 =
 	{
-		0.0f, 1.0f, 0.0f,
-		0.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f
+		fLow, fHigh, fLow,
+		fLow, fHigh, fHigh,
+		fHigh, fHigh, fHigh
 	};
 
 	Vector3d::Triangle tri6 =
 	{
-		0.0f, 1.0f, 0.0f,
-		1.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 0.0f
+		fLow, fHigh, fLow,
+		fHigh, fHigh, fHigh,
+		fHigh, fHigh, fLow
 	};
 
 	Vector3d::Triangle tri7 =
 	{
-		0.0f, 0.0f, 1.0f,
-		1.0f, 0.0f, 1.0f,
-		0.0f, 1.0f, 1.0f
+		fLow, fLow, fHigh,
+		fHigh, fLow, fHigh,
+		fLow, fHigh, fHigh
 	};
 
 	Vector3d::Triangle tri8 =
 	{
-		0.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f
+		fLow, fHigh, fHigh,
+		fHigh, fHigh, fHigh,
+		fHigh, fHigh, fHigh
 	};
 
 	Vector3d::Triangle tri9 =
 	{
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f
+		fLow, fHigh, fLow,
+		fLow, fLow, fLow,
+		fLow, fLow, fHigh
 	};
 
 	Vector3d::Triangle tri10 =
 	{
-		0.0f, 1.0f, 1.0f,
-		0.0f, 0.0f, 1.0f,
-		0.0f, 1.0f, 0.0f
+		fLow, fHigh, fHigh,
+		fLow, fLow, fHigh,
+		fLow, fHigh, fLow
 	};
 
 	Vector3d::Triangle tri11 =
 	{
-		0.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 1.0f,
+		fLow, fLow, fLow,
+		fHigh, fLow, fLow,
+		fHigh, fLow, fHigh,
 	};
 
 	Vector3d::Triangle tri12 =
 	{
-		0.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 1.0f,
-		0.0f, 0.0f, 1.0f
+		fLow, fLow, fLow,
+		fHigh, fLow, fHigh,
+		fLow, fLow, fHigh
 	};
 
 	Vector3d::Mesh obj, obj2;
@@ -105,17 +107,17 @@ Vector3d::Mesh Object3dCube::InitObject()
 	{
 		Vector3d::Triangle t;
 		t = tri;
-		t.a.x -= 1.0f;
-		t.a.y -= 1.0f;
-		t.a.z -= 1.0f;
+		t.a.x -= 0.5f;
+		t.a.y -= 0.5f;
+		t.a.z -= 0.5f;
 
-		t.b.x -= 1.0f;
-		t.b.y -= 1.0f;
-		t.b.z -= 1.0f;
+		t.b.x -= 0.5f;
+		t.b.y -= 0.5f;
+		t.b.z -= 0.5f;
 
-		t.c.x -= 1.0f;
-		t.c.y -= 1.0f;
-		t.c.z -= 1.0f;
+		t.c.x -= 0.5f;
+		t.c.y -= 0.5f;
+		t.c.z -= 0.5f;
 
 		obj.triangles.push_back(t);
 	}*/
