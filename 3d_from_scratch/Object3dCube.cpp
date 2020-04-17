@@ -4,6 +4,7 @@ Vector3d::Mesh Object3dCube::InitObject()
 {
 	float fLow = -0.5f;
 	float fHigh = 0.5f;
+
 	Vector3d::Triangle tri1 =
 	{
 		fLow, fLow, fLow,
@@ -34,58 +35,58 @@ Vector3d::Mesh Object3dCube::InitObject()
 
 	Vector3d::Triangle tri5 =
 	{
+		fHigh, fLow, fHigh,
+		fHigh, fHigh, fHigh,
+		fLow, fHigh, fHigh
+	};
+
+	Vector3d::Triangle tri6 =
+	{
+		fHigh, fLow, fHigh,
+		fLow, fHigh, fHigh,
+		fLow, fLow, fHigh
+	};
+
+	Vector3d::Triangle tri7 =
+	{
+		fLow, fLow, fHigh,
+		fLow, fHigh, fHigh,
+		fLow, fHigh, fLow
+	};
+
+	Vector3d::Triangle tri8 =
+	{
+		fLow, fLow, fHigh,
+		fLow, fHigh, fLow,
+		fLow, fLow, fLow
+	};
+
+	Vector3d::Triangle tri9 =
+	{
 		fLow, fHigh, fLow,
 		fLow, fHigh, fHigh,
 		fHigh, fHigh, fHigh
 	};
 
-	Vector3d::Triangle tri6 =
+	Vector3d::Triangle tri10 =
 	{
 		fLow, fHigh, fLow,
 		fHigh, fHigh, fHigh,
 		fHigh, fHigh, fLow
 	};
 
-	Vector3d::Triangle tri7 =
-	{
-		fLow, fLow, fHigh,
-		fHigh, fLow, fHigh,
-		fLow, fHigh, fHigh
-	};
-
-	Vector3d::Triangle tri8 =
-	{
-		fLow, fHigh, fHigh,
-		fHigh, fHigh, fHigh,
-		fHigh, fHigh, fHigh
-	};
-
-	Vector3d::Triangle tri9 =
-	{
-		fLow, fHigh, fLow,
-		fLow, fLow, fLow,
-		fLow, fLow, fHigh
-	};
-
-	Vector3d::Triangle tri10 =
-	{
-		fLow, fHigh, fHigh,
-		fLow, fLow, fHigh,
-		fLow, fHigh, fLow
-	};
-
 	Vector3d::Triangle tri11 =
 	{
-		fLow, fLow, fLow,
-		fHigh, fLow, fLow,
 		fHigh, fLow, fHigh,
+		fLow, fLow, fHigh,
+		fLow, fLow, fLow
 	};
 
 	Vector3d::Triangle tri12 =
 	{
-		fLow, fLow, fLow,
 		fHigh, fLow, fHigh,
-		fLow, fLow, fHigh
+		fLow, fLow, fLow,
+		fHigh, fLow, fLow
 	};
 
 	Vector3d::Mesh obj, obj2;

@@ -1,2 +1,4 @@
-﻿  Object3dCube.cpp
+﻿  Engine.cpp
+D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Engine.cpp(32,43): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Engine.cpp(57,20): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
   3d_from_scratch.vcxproj -> D:\coding\git\FactoryPattern_3D_Engine_SDL2\x64\Debug\3d_from_scratch.exe

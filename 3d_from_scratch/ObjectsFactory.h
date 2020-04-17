@@ -5,13 +5,13 @@
 class ObjectsFactory
 {
 public:
-	enum ObjectType
+	enum Type
 	{
 		cube,
 		model
 	};
 
-	Object3d* createObject(ObjectType objType, SDL_Renderer* 
+	Object3d* createObject(Type objType, SDL_Renderer* 
 		sdlRndr, int scrnW, int scrnH, uint8_t alpha = 255)
 	{
 		Object3d* obj;

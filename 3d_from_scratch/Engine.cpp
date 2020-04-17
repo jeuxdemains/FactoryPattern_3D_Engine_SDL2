@@ -10,7 +10,7 @@ Engine::Engine(const int width, const int height) :
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		iWinWidth_, iWinHeight_,
-		SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_FULLSCREEN_DESKTOP);
+		SDL_WINDOW_INPUT_FOCUS /*| SDL_WINDOW_FULLSCREEN_DESKTOP */);
 
 	sdlRenderer_ = SDL_CreateRenderer(
 		sdMainWindow_, -1,
@@ -18,19 +18,17 @@ Engine::Engine(const int width, const int height) :
 
 	SDL_SetRenderDrawBlendMode(sdlRenderer_, SDL_BLENDMODE_BLEND);
 
-	int numOfObjs = 400;
+	int numOfObjs = 300;
 	float alpha = 0;
 	for (int i = 0; i < numOfObjs; i++)
 	{
 		if (i < numOfObjs - 2)
-		{
-			alpha += 0.025f;
-		}
+			alpha += 0.045f;
 		else
 			alpha = 255;
 
 		objects_.push_back(objectsFactory_->createObject(
-			ObjectsFactory::ObjectType::cube,
+			ObjectsFactory::Type::cube,
 			sdlRenderer_, iWinWidth_, iWinHeight_, alpha));
 	}
 

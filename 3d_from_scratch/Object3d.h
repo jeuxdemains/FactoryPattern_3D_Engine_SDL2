@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <time.h>
+#include <memory>
 #include "Vector3d.h"
 #include "Matrix.h"
 
@@ -16,6 +17,7 @@ class Object3d
 	int scrnW_, scrnH_;
 	bool isFirst_ = false;
 	Matrix* matrix = nullptr;
+
 public:
 	Object3d() {};
 	Object3d(SDL_Renderer* sdlRndr, int scrnW, int scrnH) :
