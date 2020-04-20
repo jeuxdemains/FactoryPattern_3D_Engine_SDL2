@@ -8,7 +8,7 @@
 
 class Engine
 {
-	SDL_Window* sdMainWindow_ = nullptr;
+	SDL_Window* sdlMainWindow_ = nullptr;
 	SDL_Renderer* sdlRenderer_ = nullptr;
 	int iWinWidth_, iWinHeight_;
 	bool bIsLooping_ = true;

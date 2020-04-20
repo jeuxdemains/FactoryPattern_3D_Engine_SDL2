@@ -5,15 +5,15 @@ Engine::Engine(const int width, const int height) :
 {
 	SDL_Init(SDL_INIT_VIDEO);
 
-	sdMainWindow_ = SDL_CreateWindow(
+	sdlMainWindow_ = SDL_CreateWindow(
 		"3D From Scratch",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		iWinWidth_, iWinHeight_,
-		SDL_WINDOW_INPUT_FOCUS /*| SDL_WINDOW_FULLSCREEN_DESKTOP */);
+		SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_RESIZABLE);
 
 	sdlRenderer_ = SDL_CreateRenderer(
-		sdMainWindow_, -1,
+		sdlMainWindow_, -1,
 		SDL_RENDERER_ACCELERATED);
 
 	SDL_SetRenderDrawBlendMode(sdlRenderer_, SDL_BLENDMODE_BLEND);
@@ -38,7 +38,7 @@ Engine::Engine(const int width, const int height) :
 Engine::~Engine()
 {
 	SDL_DestroyRenderer(sdlRenderer_);
-	SDL_DestroyWindow(sdMainWindow_);
+	SDL_DestroyWindow(sdlMainWindow_);
 }
 
 void Engine::loop()

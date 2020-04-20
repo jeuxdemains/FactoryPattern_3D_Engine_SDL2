@@ -31,7 +31,7 @@ public:
 		scrnH_ = sH;
 		matrix = new Matrix((float)scrnW_, (float)scrnH_);
 
-		incRX = incRY = incRZ += 0.003f;
+		incRX = incRY = incRZ += 0.013f;
 		fRotationX_ = incRX;
 		fRotationY_ = incRY;
 		fRotationZ_ = incRZ;
@@ -39,6 +39,54 @@ public:
 
 		objects_.push_back(obj);
 	};
+
+	//back-face culling
+	bool IsFrontFace(Vector3d::Triangle& tri)
+	{
+		//make lines from vertices b->a & c->a
+		Vector3d::Vector3 line1, line2;
+		line1.x = tri.b.x - tri.a.x;
+		line1.y = tri.b.y - tri.a.y;
+		line1.z = tri.b.z - tri.a.z;
+
+		line2.x = tri.c.x - tri.a.x;
+		line2.y = tri.c.y - tri.a.y;
+		line2.z = tri.c.z - tri.a.z;
+
+		Vector3d* v3d = new Vector3d();
+		Vector3d::Vector3 cross = v3d->Cross(line1, line2);
+		Vector3d::Vector3 normal, cam;
+
+		normal = v3d->Normalize(cross);
+		cam.x = tri.a.x - 0.0f;
+		cam.y = tri.a.y - 0.0f;
+		cam.z = tri.a.z - 0.0f;
+
+		float dot = v3d->Dot(normal, cam);
+		delete v3d;
+
+		if (dot < 0.0f)
+			return true;
+
+		return false;
+	}
+
+	void FillPolygon(Vector3d::Triangle& tri)
+	{
+		int x, y, dx, dy;
+		x = tri.a.x + tri.b.x + tri.c.x;
+		x /= 3;
+		y = tri.a.y + tri.b.y + tri.c.y;
+		y /= 3;
+
+		SDL_RenderDrawPoint(sdlRenderer_, x, y);
+		
+	}
+
+	int Min(int a, int b)
+	{
+		return (a > b) ? a : b;
+	}
 
 	virtual ~Object3d();
 	virtual Vector3d::Mesh InitObject() = 0;

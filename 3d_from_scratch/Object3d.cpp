@@ -8,8 +8,8 @@ Object3d::~Object3d()
 void Object3d::Update()
 {
 	fRotationX_ += 1.0f * 0.01f;
-	fRotationY_ += 1.0f * 0.02f;
-	fRotationZ_ += 1.0f * 0.03f;
+	fRotationY_ += 1.0f * 0.03f;
+	fRotationZ_ += 1.0f * 0.05f;
 
 	clrR_ = abs(155 * cos(fRotationX_) * 1.5);
 	clrG_ = abs(155 * cos(fRotationY_) * 1.5);
@@ -44,47 +44,29 @@ void Object3d::Render()
 		rotX[i] = rotY[i];
 		matrix->mulTriangleByMatrix(rotY[i], rotX[i], matRotX);
 
-		rotX[i].a.z += 3.0f;
-		rotX[i].b.z += 3.0f;
-		rotX[i].c.z += 3.0f;
+		SDL_GetRendererOutputSize(sdlRenderer_, &scrnW_, &scrnH_);
+
+		rotX[i].a.z += 5.0f * scrnH_ / scrnW_;
+		rotX[i].b.z += 5.0f * scrnH_ / scrnW_;
+		rotX[i].c.z += 5.0f * scrnH_ / scrnW_;
 
 		/*rotX[i].a.x += 3.0f;
 		rotX[i].b.x += 3.0f;
 		rotX[i].c.x += 3.0f;*/
 
-		rotX[i].a.x += 2.0f * cosf(fRotationX_) * sinf(fRotationY_);
-		rotX[i].b.x += 2.0f * cosf(fRotationX_) * sinf(fRotationY_);
-		rotX[i].c.x += 2.0f * cosf(fRotationX_) * sinf(fRotationY_);
+		rotX[i].a.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
+		rotX[i].b.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
+		rotX[i].c.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
 
-		rotX[i].a.y += 1.0f * sinf(fRotationY_) * cosf(fRotationX_);
-		rotX[i].b.y += 1.0f * sinf(fRotationY_) * cosf(fRotationX_);
-		rotX[i].c.y += 1.0f * sinf(fRotationY_) * cosf(fRotationX_);
+		rotX[i].a.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
+		rotX[i].b.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
+		rotX[i].c.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
 
 		//rotX[i].a.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
 		//rotX[i].b.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
 		//rotX[i].c.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
 
-
-		//back-face culling
-		Vector3d::Vector3 line1, line2;
-		line1.x = rotX[i].b.x - rotX[i].a.x;
-		line1.y = rotX[i].b.y - rotX[i].a.y;
-		line1.z = rotX[i].b.z - rotX[i].a.z;
-
-		line2.x = rotX[i].c.x - rotX[i].a.x;
-		line2.y = rotX[i].c.y - rotX[i].a.y;
-		line2.z = rotX[i].c.z - rotX[i].a.z;
-
-		Vector3d::Vector3 cross = v3d->Cross(line1, line2);
-		Vector3d::Vector3 normal, cam;
-		normal = v3d->Normalize(cross);
-
-		cam.x = rotX[i].a.x - 0.0f;
-		cam.y = rotX[i].a.y - 0.0f;
-		cam.z = rotX[i].a.z - 0.0f;
-
-		float dot = v3d->Dot(normal, cam);
-		if (dot < 0.0f)
+		if (IsFrontFace(rotX[i]))
 		{
 			projectedTri[i] = rotX[i];
 			matrix->mulTriangleByMatrix(
@@ -116,6 +98,8 @@ void Object3d::Render()
 		projectedTri[i].b.y *= 0.5f * (float)scrnH_;
 		projectedTri[i].c.x *= 0.5f * (float)scrnW_;
 		projectedTri[i].c.y *= 0.5f * (float)scrnH_;
+
+		FillPolygon(projectedTri[i]);
 
 		SDL_RenderDrawLine(
 			sdlRenderer_,
