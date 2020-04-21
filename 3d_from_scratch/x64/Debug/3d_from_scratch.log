@@ -1,35 +1,22 @@
-﻿  Engine.cpp
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(77,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(79,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,17): warning C4101: 'dy': unreferenced local variable
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,13): warning C4101: 'dx': unreferenced local variable
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Engine.cpp(32,43): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Engine.cpp(57,20): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-  Object3d.cpp
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(77,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(79,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,17): warning C4101: 'dy': unreferenced local variable
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,13): warning C4101: 'dx': unreferenced local variable
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(14,13): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(15,13): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(16,13): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(84,24): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(107,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(107,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(106,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(106,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(111,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(111,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(110,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(110,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(115,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(115,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(114,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(114,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  main.cpp
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(77,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(79,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,17): warning C4101: 'dy': unreferenced local variable
-D:\coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,13): warning C4101: 'dx': unreferenced local variable
-  Generating Code...
-  3d_from_scratch.vcxproj -> D:\coding\git\FactoryPattern_3D_Engine_SDL2\x64\Debug\3d_from_scratch.exe
+﻿  Object3d.cpp
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(77,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(79,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,17): warning C4101: 'dy': unreferenced local variable
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.h(76,13): warning C4101: 'dx': unreferenced local variable
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(14,13): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(15,13): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(16,13): warning C4244: '=': conversion from 'double' to 'uint8_t', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(89,24): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(112,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(112,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(111,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(111,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(116,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(116,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(115,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(115,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(120,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(120,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(119,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Coding\git\FactoryPattern_3D_Engine_SDL2\3d_from_scratch\Object3d.cpp(119,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  3d_from_scratch.vcxproj -> D:\Coding\git\FactoryPattern_3D_Engine_SDL2\x64\Debug\3d_from_scratch.exe

@@ -6,7 +6,7 @@ class Matrix
 {
 	const float fNear_ = 0.1f;
 	const float fFar_ = 1000.f;
-	const float fFov_ = 90.0f;
+	const float fFov_ = 60.0f;
 	const float fFovRad_ = 1.0f / (tanf(fFov_ * 0.5f / 180.0f * 3.14169f));
 	float width_, height_, fAspect_;
 
@@ -48,4 +48,5 @@ public:
 		const Matrix::Matrix4& matrix);
 
 	Matrix4 getRotationMatrix(float rotationAngle, int axis) const;
+	Matrix4 makeTranslateMatrix(float x, float y, float z);
 };

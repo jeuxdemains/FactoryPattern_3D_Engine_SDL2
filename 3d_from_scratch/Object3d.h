@@ -31,7 +31,7 @@ public:
 		scrnH_ = sH;
 		matrix = new Matrix((float)scrnW_, (float)scrnH_);
 
-		incRX = incRY = incRZ += 0.013f;
+		incRX = incRY = incRZ += 0.003f;
 		fRotationX_ = incRX;
 		fRotationY_ = incRY;
 		fRotationZ_ = incRZ;

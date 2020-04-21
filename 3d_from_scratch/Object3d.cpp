@@ -26,12 +26,15 @@ void Object3d::Render()
 		matrix->getRotationMatrix(fRotationY_, Matrix::Axis::y);
 	Matrix::Matrix4 const matRotZ =
 		matrix->getRotationMatrix(fRotationZ_, Matrix::Axis::z);
+	Matrix::Matrix4 const transMat = 
+		matrix->makeTranslateMatrix(0.0f, -0.5f, 0.0f);
 
 	Vector3d::Triangle
 		projectedTri[24],
 		rotX[24],
 		rotY[24],
-		rotZ[24];
+		rotZ[24],
+		transX[24];
 
 	Vector3d* v3d = new Vector3d();
 	int i = 0;
@@ -43,34 +46,36 @@ void Object3d::Render()
 		matrix->mulTriangleByMatrix(rotZ[i], rotY[i], matRotY);
 		rotX[i] = rotY[i];
 		matrix->mulTriangleByMatrix(rotY[i], rotX[i], matRotX);
+		transX[i] = rotX[i];
+		//matrix->mulTriangleByMatrix(rotX[i], transX[i], transMat);
 
 		SDL_GetRendererOutputSize(sdlRenderer_, &scrnW_, &scrnH_);
 
-		rotX[i].a.z += 5.0f * scrnH_ / scrnW_;
-		rotX[i].b.z += 5.0f * scrnH_ / scrnW_;
-		rotX[i].c.z += 5.0f * scrnH_ / scrnW_;
+		transX[i].a.z += 8.0f * scrnH_ / scrnW_;
+		transX[i].b.z += 8.0f * scrnH_ / scrnW_;
+		transX[i].c.z += 8.0f * scrnH_ / scrnW_;
 
 		/*rotX[i].a.x += 3.0f;
 		rotX[i].b.x += 3.0f;
 		rotX[i].c.x += 3.0f;*/
 
-		rotX[i].a.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
-		rotX[i].b.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
-		rotX[i].c.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
+		transX[i].a.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
+		transX[i].b.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
+		transX[i].c.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
 
-		rotX[i].a.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
-		rotX[i].b.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
-		rotX[i].c.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
+		transX[i].a.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
+		transX[i].b.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
+		transX[i].c.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
 
 		//rotX[i].a.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
 		//rotX[i].b.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
 		//rotX[i].c.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
 
-		if (IsFrontFace(rotX[i]))
+		if (IsFrontFace(transX[i]))
 		{
-			projectedTri[i] = rotX[i];
+			projectedTri[i] = transX[i];
 			matrix->mulTriangleByMatrix(
-				rotX[i], projectedTri[i],
+				transX[i], projectedTri[i],
 				matrix->projectionMatrix_);
 
 			i++;
