@@ -1,6 +1,6 @@
 #include "Object3dCube.h"
 
-Vector3d::Mesh Object3dCube::InitObject()
+Vector3d::Mesh Object3dCube::LoadModel(std::string fName /* not used */)
 {
 	float fLow = -0.5f;
 	float fHigh = 0.5f;

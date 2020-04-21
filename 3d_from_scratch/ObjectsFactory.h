@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include "Object3dCube.h"
+#include "Object3dModel.h"
 
 class ObjectsFactory
 {
@@ -22,7 +23,8 @@ public:
 			break;
 		case ObjectsFactory::model:
 		default:
-			obj = new Object3dCube(sdlRndr, scrnW, scrnH, alpha);
+			obj = new Object3dModel("model.obj", 
+				sdlRndr, scrnW, scrnH, alpha);
 			break;
 		}
 

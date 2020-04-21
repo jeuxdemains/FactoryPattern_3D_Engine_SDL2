@@ -48,5 +48,6 @@ public:
 		const Matrix::Matrix4& matrix);
 
 	Matrix4 getRotationMatrix(float rotationAngle, int axis) const;
-	Matrix4 makeTranslateMatrix(float x, float y, float z);
+	Matrix4 setScaleMatrix(float x, float y, float z);
+	Matrix4 setTranslateMatrix(float x, float y, float z);
 };

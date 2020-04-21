@@ -43,7 +43,20 @@ void Matrix::mulTriangleByMatrix(
 	mulVectorByMatrix(triangle.c, destTriangle.c, matrix);
 }
 
-Matrix::Matrix4 Matrix::makeTranslateMatrix(float x, float y, float z)
+Matrix::Matrix4 Matrix::setScaleMatrix(float x, float y, float z)
+{
+	Matrix4 transMat =
+	{
+		x, 0.0f, 0.0f, 0.0f,
+		0.0f, y, 0.0f, 0.0f,
+		0.0f, 0.0f, z, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f
+	};
+
+	return transMat;
+}
+
+Matrix::Matrix4 Matrix::setTranslateMatrix(float x, float y, float z)
 {
 	Matrix4 transMat =
 	{

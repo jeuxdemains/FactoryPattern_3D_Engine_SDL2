@@ -1,5 +1,8 @@
 #pragma once
 #include <vector>
+#include <string>
+#include <fstream>
+#include <strstream>
 
 class Vector3d
 {
@@ -18,6 +21,39 @@ public:
 	struct Mesh
 	{
 		std::vector<Triangle> triangles;
+
+		bool LoadFromObjFile(std::string fName)
+		{
+			std::ifstream f(fName);
+			if (!f.is_open())
+				return false;
+
+			std::vector<Vector3> verts;
+			while (!f.eof())
+			{
+				char line[128];
+				f.getline(line, 128);
+
+				std::strstream s;
+				s << line;
+
+				char junk;
+				if (line[0] == 'v')
+				{
+					Vector3 vec;
+					s >> junk >> vec.x >> vec.y >> vec.z;
+					verts.push_back(vec);
+				}
+
+				if (line[0] == 'f')
+				{
+					int f[3];
+					s >> junk >> f[0] >> f[1] >> f[2];
+					triangles.push_back({ verts[f[0] - 1], verts[f[1] - 1], verts[f[2] - 1] });
+				}
+			}
+			return true;
+		}
 	};
 
 	Vector3 Cross(const Vector3& v1, const Vector3& v2) const

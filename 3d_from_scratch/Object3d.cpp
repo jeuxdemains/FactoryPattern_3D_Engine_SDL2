@@ -11,9 +11,9 @@ void Object3d::Update()
 	fRotationY_ += 1.0f * 0.03f;
 	fRotationZ_ += 1.0f * 0.05f;
 
-	clrR_ = abs(155 * cos(fRotationX_) * 1.5);
-	clrG_ = abs(155 * cos(fRotationY_) * 1.5);
-	clrB_ = abs(155 * cos(fRotationZ_) * 1.5);
+	clrR_ = abs(160 * cos(fRotationX_) * 1.5);
+	clrG_ = abs(160 * cos(fRotationY_) * 1.5);
+	clrB_ = abs(160 * cos(fRotationZ_) * 1.5);
 
 	Render();
 }
@@ -26,50 +26,55 @@ void Object3d::Render()
 		matrix->getRotationMatrix(fRotationY_, Matrix::Axis::y);
 	Matrix::Matrix4 const matRotZ =
 		matrix->getRotationMatrix(fRotationZ_, Matrix::Axis::z);
-	Matrix::Matrix4 const transMat = 
-		matrix->makeTranslateMatrix(0.0f, -0.5f, 0.0f);
+	Matrix::Matrix4 const scaleMat = 
+		matrix->setScaleMatrix(1.0f, 1.0f, 1.0f);
+	Matrix::Matrix4 const transMat =
+		matrix->setTranslateMatrix(0.0f, 0.0f, 0.0f);
 
+	const int vertCount = 7;
 	Vector3d::Triangle
-		projectedTri[24],
-		rotX[24],
-		rotY[24],
-		rotZ[24],
-		transX[24];
+		projectedTri[vertCount],
+		rotX[vertCount],
+		rotY[vertCount],
+		rotZ[vertCount],
+		transX[vertCount],
+		scale[vertCount];
 
 	Vector3d* v3d = new Vector3d();
 	int i = 0;
 	for (auto triangle : objects_[0].triangles)
 	{
-		rotZ[i] = triangle;
-		matrix->mulTriangleByMatrix(triangle, rotZ[i], matRotZ);
+		scale[i] = triangle;
+		matrix->mulTriangleByMatrix(triangle, scale[i], scaleMat);
+		rotZ[i] = scale[i];
+		matrix->mulTriangleByMatrix(scale[i], rotZ[i], matRotZ);
 		rotY[i] = rotZ[i];
 		matrix->mulTriangleByMatrix(rotZ[i], rotY[i], matRotY);
 		rotX[i] = rotY[i];
 		matrix->mulTriangleByMatrix(rotY[i], rotX[i], matRotX);
 		transX[i] = rotX[i];
-		//matrix->mulTriangleByMatrix(rotX[i], transX[i], transMat);
+		matrix->mulTriangleByMatrix(rotX[i], transX[i], transMat);
+
+		transX[i].a.z += 14.0f;
+		transX[i].b.z += 14.0f;
+		transX[i].c.z += 14.0f;
 
 		SDL_GetRendererOutputSize(sdlRenderer_, &scrnW_, &scrnH_);
+		/*transX[i].a.x += scrnW_ / scrnH_;
+		transX[i].b.x += scrnW_ / scrnH_;
+		transX[i].c.x += scrnW_ / scrnH_;*/
 
-		transX[i].a.z += 8.0f * scrnH_ / scrnW_;
-		transX[i].b.z += 8.0f * scrnH_ / scrnW_;
-		transX[i].c.z += 8.0f * scrnH_ / scrnW_;
+		transX[i].a.x += 2.5f * cosf(fRotationX_ * 2);
+		transX[i].b.x += 2.5f * cosf(fRotationX_ * 2);
+		transX[i].c.x += 2.5f * cosf(fRotationX_ * 2);
 
-		/*rotX[i].a.x += 3.0f;
-		rotX[i].b.x += 3.0f;
-		rotX[i].c.x += 3.0f;*/
+		transX[i].a.y += 3.5f * sinf(fRotationX_ * 2);
+		transX[i].b.y += 3.5f * sinf(fRotationX_ * 2);
+		transX[i].c.y += 3.5f * sinf(fRotationX_ * 2);
 
-		transX[i].a.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
-		transX[i].b.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
-		transX[i].c.x += 1.5f * cosf(fRotationX_) * sinf(fRotationY_);
-
-		transX[i].a.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
-		transX[i].b.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
-		transX[i].c.y += 1.5f * sinf(fRotationX_) * cosf(fRotationY_);
-
-		//rotX[i].a.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
-		//rotX[i].b.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
-		//rotX[i].c.z += 3.0f * sinf(fRotationY_) * cosf(fRotationX_);
+		transX[i].a.z -= 6.5f * cosf(fRotationX_ * 1.5);
+		transX[i].b.z -= 6.5f * cosf(fRotationX_ * 1.5);
+		transX[i].c.z -= 6.5f * cosf(fRotationX_ * 1.5);
 
 		if (IsFrontFace(transX[i]))
 		{

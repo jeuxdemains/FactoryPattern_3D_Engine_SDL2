@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <time.h>
 #include <memory>
+#include <string>
 #include "Vector3d.h"
 #include "Matrix.h"
 
@@ -89,7 +90,7 @@ public:
 	}
 
 	virtual ~Object3d();
-	virtual Vector3d::Mesh InitObject() = 0;
+	virtual Vector3d::Mesh LoadModel(std::string fName) = 0;
 	virtual void Update();
 	virtual void Render();
 };

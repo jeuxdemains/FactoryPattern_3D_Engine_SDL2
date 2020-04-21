@@ -18,14 +18,14 @@ Engine::Engine(const int width, const int height) :
 
 	SDL_SetRenderDrawBlendMode(sdlRenderer_, SDL_BLENDMODE_BLEND);
 
-	int numOfObjs = 300;
+	int numOfObjs = 600;
 	float alpha = 0;
 	for (int i = 0; i < numOfObjs; i++)
 	{
-		if (i < numOfObjs - 2)
-			alpha += 0.045f;
+		if (i < numOfObjs - 1)
+			alpha += 0.049f;
 		else
-			alpha = 255;
+			alpha = 100;
 
 		objects_.push_back(objectsFactory_->createObject(
 			ObjectsFactory::Type::cube,
